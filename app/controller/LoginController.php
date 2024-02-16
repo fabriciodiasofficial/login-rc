@@ -13,5 +13,18 @@
 
 			return $template->render();
 		}
+
+		public function check()
+		{
+			try{
+				 $user = new User;
+				 $user->setEmail($_POST['email']);
+				 $user->setPassword($_POST['password']);
+				 $user->validateLogin();
+			}catch(\Exception $e){
+				header('Location: http://localhost/estudo/login-rc/');
+			}
+			
+		}
 	}
  ?>
