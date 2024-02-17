@@ -21,6 +21,8 @@
 				 $user->setEmail($_POST['email']);
 				 $user->setPassword($_POST['password']);
 				 $user->validateLogin();
+
+				header('Location: http://localhost/estudo/login-rc/dashboard');
 			}catch(\Exception $e){
 				header('Location: http://localhost/estudo/login-rc/');
 			}
