@@ -10,8 +10,9 @@
 			    'auto_reload' => true,
 			]);
 			$template = $twig->load('login.html');
+				$parameters['error'] = $_SESSION['msg_error'] ?? null;
 
-			return $template->render();
+			return $template->render($parameters);
 		}
 
 		public function check()
@@ -24,6 +25,8 @@
 
 				header('Location: http://localhost/estudo/login-rc/dashboard');
 			}catch(\Exception $e){
+				$_SESSION['msg_error'] = array('msg' => $e->getMessage(), 'count' => 0);
+
 				header('Location: http://localhost/estudo/login-rc/');
 			}
 			
