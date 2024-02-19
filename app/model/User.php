@@ -23,7 +23,10 @@
  				$result = $stmt->fetch();
 
  				if ($result['pass'] === $this->password){
- 					 $_SESSION['usr'] = $result['id'];
+ 					 $_SESSION['usr'] = array(
+ 					 	'id_user' => $result['id'], 
+ 					 	'name_user' => $result['name']
+ 					 );
 
  					 return true;
  				}
